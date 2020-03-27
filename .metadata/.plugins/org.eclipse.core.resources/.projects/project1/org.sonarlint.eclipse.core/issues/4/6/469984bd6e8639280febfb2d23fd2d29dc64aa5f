@@ -1,0 +1,7 @@
+
+æ
+java:S11306"­Remove the declaration of thrown exception 'com.fasterxml.jackson.databind.JsonMappingException' which is a subclass of 'com.fasterxml.jackson.core.JsonProcessingException'.(«Úúÿÿÿÿ8¹Æ·‘.H³RMINORZ
+CODE_SMELL
+b
+java:S11726"*Remove this unused method parameter "uri".(«Úúÿÿÿÿ8¹Æ·‘.H´RMAJORZ
+CODE_SMELL

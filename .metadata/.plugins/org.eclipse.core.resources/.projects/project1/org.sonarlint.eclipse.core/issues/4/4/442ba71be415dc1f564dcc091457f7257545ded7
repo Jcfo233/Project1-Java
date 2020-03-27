@@ -1,0 +1,50 @@
+
+†
+java:S1989"PHandle the following exception that could be thrown by "getReader": IOException.(–Ä®8¬íÄ·‘.HªRMINORZVULNERABILITY
+˜
+java:S1989("]Handle the following exception that could be thrown by "processGet": JsonProcessingException.(ˆØÍİÿÿÿÿÿ8¢¶˜¸‘.H§RMINORZVULNERABILITY
+t
+java:S1128"<Remove this unused import 'com.revature.instances.Employee'.(ÃÓÙøÿÿÿÿ8İ¯ş¸‘.HRMINORZ
+CODE_SMELL
+†
+java:S19891"PHandle the following exception that could be thrown by "getWriter": IOException.(ªäÉ8¬íÄ·‘.H¨RMINORZVULNERABILITY
+°
+java:S1989H"uHandle the following exceptions that could be thrown by "processPost": JsonMappingException, JsonProcessingException.(î›ñøÿÿÿÿ8İ¯ş¸‘.H¢RMINORZVULNERABILITY
+…
+java:S1989>"OHandle the following exception that could be thrown by "readLine": IOException.(ŞÙ»8¬íÄ·‘.H¥RMINORZVULNERABILITY
+^
+java:S1481"+Remove this unused "reader" local variable.(–Ä®8İ¯ş¸‘.H©RMINORZ
+CODE_SMELL
+†
+java:S19898"PHandle the following exception that could be thrown by "getReader": IOException.(–Ä®8İ¯ş¸‘.H®RMINORZVULNERABILITY
+l
+java:S1128"4Remove this unused import 'java.time.LocalDateTime'.(æÃ§ƒüÿÿÿÿ8¬íÄ·‘.H¯RMINORZ
+CODE_SMELL
+t
+java:S1128"ARemove this unused import 'com.revature.instances.LoginTemplate'.(ì·ê•8İ¯ş¸‘.HŸRMINORZ
+CODE_SMELL
+m
+java:S1854":Remove this useless assignment to local variable "reader".(–Ä®8İ¯ş¸‘.H¦RMAJORZ
+CODE_SMELL
+†
+java:S1989T"PHandle the following exception that could be thrown by "getWriter": IOException.(ªäÉ8İ¯ş¸‘.H¬RMINORZVULNERABILITY
+_
+java:S1481"'Remove this unused "sb" local variable.(€ê±Õúÿÿÿÿ8İ¯ş¸‘.H RMINORZ
+CODE_SMELL
+n
+java:S1128";Remove this unused import 'javax.servlet.http.HttpSession'.(í¨ô8¬íÄ·‘.H¡RMINORZ
+CODE_SMELL
+{
+java:S1128"HRemove this unused import 'com.fasterxml.jackson.databind.ObjectMapper'.(´‘¨™8İ¯ş¸‘.H¤RMINORZ
+CODE_SMELL
+™
+java:S1989K"^Handle the following exception that could be thrown by "processPost": JsonProcessingException.(»×à‰üÿÿÿÿ8İ¯ş¸‘.H£RMINORZVULNERABILITY
+n
+java:S1854"6Remove this useless assignment to local variable "sb".(€ê±Õúÿÿÿÿ8İ¯ş¸‘.H­RMAJORZ
+CODE_SMELL
+c
+java:S1128"0Remove this unused import 'java.io.PrintWriter'.(ÓŞÏÛ8¬íÄ·‘.H«RMINORZ
+CODE_SMELL
+p
+java:S1128"8Remove this unused import 'com.revature.instances.Role'.(Ò‡À‰úÿÿÿÿ8¬íÄ·‘.H°RMINORZ
+CODE_SMELL

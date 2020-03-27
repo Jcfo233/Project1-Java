@@ -1,0 +1,137 @@
+package com.revature.repository;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import com.revature.instances.Employee;
+import com.revature.instances.Role;
+import com.revature.util.ConnectionUtil;
+import com.revature.util.LoggerUtil;
+
+public class EmployeeDAOImpl implements EmployeeDAO {
+
+	@Override
+	public boolean findByUserPass(String username, String password) {
+		Employee emp = null;
+		String pass = null;
+		try (Connection conn = ConnectionUtil.getConnection()) {
+			String sql = "SELECT * FROM ERS_USERS WHERE ERS_USERNAME = ? AND ERS_PASSWORD = ?";
+			
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			System.out.println(password);
+			stmt.setString(1, username);
+			stmt.setString(2, password.toUpperCase());
+			
+			ResultSet rs = stmt.executeQuery();
+			
+			while(rs.next()) {
+//					int id = rs.getInt("ERS_USERS_ID");
+//					String user = rs.getString("ERS_USERNAME");
+					pass = rs.getString("ERS_PASSWORD");
+//					String first = rs.getString("USER_FIRST_NAME");
+//					String last = rs.getString("USER_LAST_NAME");
+//					String email = rs.getString("USER_EMAL");
+//					int roleid = rs.getInt("USER_ROLE_ID");
+//					Role role = Role.EMPLOYEE;
+//					switch (roleid) {
+//					case 1:
+//						role = Role.EMPLOYEE;
+//						break;
+//					case 2:
+//						role = Role.FINANCE_MANAGER;
+//						break;
+//					}
+//					emp = new Employee(id, user, pass, first, last, email, role);
+			}
+			System.out.println(pass);
+			stmt.close();
+			return pass.equalsIgnoreCase(password);
+			
+		} catch (SQLException e) {
+			LoggerUtil.log.info("SQL Exception in UserDaoImpl");
+		}
+		return false;
+	}
+	@Override
+	public Employee findById(int userid) {
+		Employee emp = null;
+
+		try (Connection conn = ConnectionUtil.getConnection()) {
+			String sql = "SELECT * FROM ERS_USERS WHERE ERS_USERS_ID = ?";
+			
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			
+			stmt.setInt(1, userid);
+			
+			ResultSet rs = stmt.executeQuery();
+			
+			while(rs.next()) {
+					int id = rs.getInt("ERS_USERS_ID");
+					String user = rs.getString("ERS_USERNAME");
+					String pass = rs.getString("ERS_PASSWORD");
+					String first = rs.getString("USER_FIRST_NAME");
+					String last = rs.getString("USER_LAST_NAME");
+					String email = rs.getString("USER_EMAL");
+					int roleid = rs.getInt("USER_ROLE_ID");
+					Role role = Role.EMPLOYEE;
+					switch (roleid) {
+					case 1:
+						role = Role.EMPLOYEE;
+						break;
+					case 2:
+						role = Role.FINANCE_MANAGER;
+						break;
+					}
+					emp = new Employee(id, user, pass, first, last, email, role);
+				}
+			stmt.close();
+		} catch (SQLException e) {
+			LoggerUtil.log.info("SQL Exception in UserDaoImpl");
+		}
+		
+		return emp;
+	}
+	@Override
+	public Employee findByUser(String username) {
+		Employee emp = null;
+
+		try (Connection conn = ConnectionUtil.getConnection()) {
+			String sql = "SELECT * FROM ERS_USERS WHERE ERS_USERNAME = ?";
+			System.out.println(username);
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			
+			stmt.setString(1, username);
+			
+			ResultSet rs = stmt.executeQuery();
+			
+			while(rs.next()) {
+					int id = rs.getInt("ERS_USERS_ID");
+					String user = rs.getString("ERS_USERNAME");
+					String pass = rs.getString("ERS_PASSWORD");
+					String first = rs.getString("USER_FIRST_NAME");
+					String last = rs.getString("USER_LAST_NAME");
+					String email = rs.getString("USER_EMAL");
+					int roleid = rs.getInt("USER_ROLE_ID");
+					Role role = Role.EMPLOYEE;
+					switch (roleid) {
+					case 1:
+						role = Role.EMPLOYEE;
+						break;
+					case 2:
+						role = Role.FINANCE_MANAGER;
+						break;
+					}
+					emp = new Employee(id, user, pass, first, last, email, role);
+					System.out.println(first);
+					System.out.println(emp.toString());
+				}
+			stmt.close();
+		} catch (SQLException e) {
+			LoggerUtil.log.info("SQL Exception in UserDaoImpl");
+		}
+		
+		return emp;
+	}
+}

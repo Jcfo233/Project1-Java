@@ -1,0 +1,115 @@
+
+X	java:S131‘""Add a default case to this switch.(ĞŞºà8©ˆ¡Í‘.HÔRCRITICALZ
+CODE_SMELL
+˜
+java:S1192c"]Define a constant instead of duplicating this literal "SQL Exception in UserDaoImpl" 5 times.(…èÈ´şÿÿÿÿ8îÆ¿Í‘.HÚRCRITICALZ
+CODE_SMELL
+X	java:S131…""Add a default case to this switch.(¤ÍĞÒ8îÆ¿Í‘.HŞRCRITICALZ
+CODE_SMELL
+w
+java:S2095‚"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ĞÀœ¢HğRBLOCKERZBUG
+t
+java:S2095"GUse try-with-resources or close this "ResultSet" in a "finally" clause.(ÊõŞàşÿÿÿÿHòRBLOCKERZBUG
+w
+java:S2095Ø"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ĞÀœ¢HÚRBLOCKERZBUG
+˜
+java:S1149"_Replace the synchronized class "StringBuffer" by an unsynchronized one such as "StringBuilder".(ğæŒÔøÿÿÿÿ8Ò•¾Ö‘.HRMAJORZ
+CODE_SMELL
+˜
+java:S1149º"_Replace the synchronized class "StringBuffer" by an unsynchronized one such as "StringBuilder".(ğæŒÔøÿÿÿÿ8Ò•¾Ö‘.HRMAJORZ
+CODE_SMELL
+w
+java:S2095§"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ĞÀœ¢HãRBLOCKERZBUG
+t
+java:S2095Ü"GUse try-with-resources or close this "ResultSet" in a "finally" clause.(Ë¼ËûÿÿÿÿHåRBLOCKERZBUG
+X	java:S131ê""Add a default case to this switch.(¤ÍĞÒ8©ˆ¡Í‘.HÕRCRITICALZ
+CODE_SMELL
+ˆ
+java:S1192A"MDefine a constant instead of duplicating this literal "REIMB_AUTHOR" 6 times.(·À–ûÿÿÿÿ8°°Ì‘.HÒRCRITICALZ
+CODE_SMELL
+X	java:S131ù""Add a default case to this switch.(ĞŞºà8îÆ¿Í‘.HÛRCRITICALZ
+CODE_SMELL
+†
+java:S1192D"PDefine a constant instead of duplicating this literal "REIMB_STATUS_ID" 5 times.(ĞŞºà8îÆ¿Í‘.HÙRCRITICALZ
+CODE_SMELL
+˜
+java:S1149ë"_Replace the synchronized class "StringBuffer" by an unsynchronized one such as "StringBuilder".(ğæŒÔøÿÿÿÿ8Ò•¾Ö‘.HRMAJORZ
+CODE_SMELL
+Ö
+java:S1192""ŸDefine a constant instead of duplicating this literal "JOIN ERS_REIMBURSEMENT_STATUS ERS ON ERS_REIMBURSEMENTS.REIMB_STATUS_ID = ERS.REIMB_STATUS_ID " 6 times.(¡‘¨Ğ8¨úşÅ‘.HŞRCRITICALZ
+CODE_SMELL
+˜
+java:S1149Ğ"_Replace the synchronized class "StringBuffer" by an unsynchronized one such as "StringBuilder".(ğæŒÔøÿÿÿÿ8Ò•¾Ö‘.HRMAJORZ
+CODE_SMELL
+}
+java:S1192*"IDefine a constant instead of duplicating this literal "REIMB_ID" 6 times.(»‘ÛƒùÿÿÿÿHèRCRITICALZ
+CODE_SMELL
+—
+java:S11496"_Replace the synchronized class "StringBuffer" by an unsynchronized one such as "StringBuilder".(ğæŒÔøÿÿÿÿ8Ò•¾Ö‘.H‹RMAJORZ
+CODE_SMELL
+…
+java:S1192B"ODefine a constant instead of duplicating this literal "REIMB_RESOLVER" 6 times.(æ‰Ğƒ8°°Ì‘.HÑRCRITICALZ
+CODE_SMELL
+t
+java:S2095«"GUse try-with-resources or close this "ResultSet" in a "finally" clause.(Ë¼ËûÿÿÿÿHÜRBLOCKERZBUG
+Ğ
+java:S1192o"™Define a constant instead of duplicating this literal "JOIN ERS_REIMBURSEMENT_TYPE ERT ON ERS_REIMBURSEMENTS.REIMB_TYPE_ID = ERT.REIMB_TYPE_ID " 5 times.(ĞûÒ¸8™ÑÎÍ‘.HãRCRITICALZ
+CODE_SMELL
+
+java:S1192,"PDefine a constant instead of duplicating this literal "REIMB_SUBMITTED" 6 times.(ûå©ñHóRCRITICALZ
+CODE_SMELL
+W	java:S131D""Add a default case to this switch.(ĞŞºà8™ÑÎÍ‘.HäRCRITICALZ
+CODE_SMELL
+‰
+java:S11923"NDefine a constant instead of duplicating this literal "reimb_receipt" 6 times.(»¨Úşüÿÿÿÿ8Ò•¾Ö‘.HŠRCRITICALZ
+CODE_SMELL
+„
+java:S1192P"NDefine a constant instead of duplicating this literal "REIMB_TYPE_ID" 5 times.(¤ÍĞÒ8îÆ¿Í‘.H×RCRITICALZ
+CODE_SMELL
+P
+java:S1116Š"Remove this empty statement.(ú¦¹Œ8¨úşÅ‘.HàRMINORZ
+CODE_SMELL
+t
+java:S2095Œ"GUse try-with-resources or close this "Statement" in a "finally" clause.(ìï‡ÀûÿÿÿÿHØRBLOCKERZBUG
+s
+java:S2095r"GUse try-with-resources or close this "Statement" in a "finally" clause.(ìï‡ÀûÿÿÿÿHæRBLOCKERZBUG
+s
+java:S2095t"GUse try-with-resources or close this "ResultSet" in a "finally" clause.(ÊõŞàşÿÿÿÿHäRBLOCKERZBUG
+t
+java:S2095¿"GUse try-with-resources or close this "Statement" in a "finally" clause.(ìï‡ÀûÿÿÿÿHİRBLOCKERZBUG
+X	java:S131""Add a default case to this switch.(¤ÍĞÒ8îÆ¿Í‘.HâRCRITICALZ
+CODE_SMELL
+s
+java:S2095'"GUse try-with-resources or close this "ResultSet" in a "finally" clause.(ÊõŞàşÿÿÿÿHáRBLOCKERZBUG
+t
+java:S2095Á"GUse try-with-resources or close this "ResultSet" in a "finally" clause.(ÊõŞàşÿÿÿÿHÛRBLOCKERZBUG
+˜
+java:S1192!"bDefine a constant instead of duplicating this literal "SELECT * FROM ERS_REIMBURSEMENTS " 6 times.(ñ‚°–8¨úşÅ‘.HìRCRITICALZ
+CODE_SMELL
+˜
+java:S1149ƒ"_Replace the synchronized class "StringBuffer" by an unsynchronized one such as "StringBuilder".(ğæŒÔøÿÿÿÿ8Ò•¾Ö‘.HŒRMAJORZ
+CODE_SMELL
+W	java:S131P""Add a default case to this switch.(¤ÍĞÒ8™ÑÎÍ‘.HåRCRITICALZ
+CODE_SMELL
+X	java:S131«""Add a default case to this switch.(ĞŞºà8îÆ¿Í‘.HÜRCRITICALZ
+CODE_SMELL
+‹
+java:S1192."PDefine a constant instead of duplicating this literal "REIMB_RESOLVED" 12 times.(ˆÅñÊıÿÿÿÿ8îÆ¿Í‘.HôRCRITICALZ
+CODE_SMELL
+]
+java:S1128"*Remove this unused import 'java.sql.Date'.(ÙÀ½Ê8ÆßâÔ‘.HùRMINORZ
+CODE_SMELL
+X	java:S131Ş""Add a default case to this switch.(ĞŞºà8îÆ¿Í‘.HáRCRITICALZ
+CODE_SMELL
+X	java:S131·""Add a default case to this switch.(¤ÍĞÒ8îÆ¿Í‘.HİRCRITICALZ
+CODE_SMELL
+s
+java:S2095%"GUse try-with-resources or close this "Statement" in a "finally" clause.(ìï‡ÀûÿÿÿÿHâRBLOCKERZBUG
+w
+java:S2095Ù"OUse try-with-resources or close this "CallableStatement" in a "finally" clause.(‚‘ìİHçRBLOCKERZBUG
+|
+java:S1192+"MDefine a constant instead of duplicating this literal "REIMB_AMOUNT" 6 times.(åÖ€úHîRCRITICALZ
+CODE_SMELL
+
+java:S11922"RDefine a constant instead of duplicating this literal "REIMB_DESCRIPTION" 6 times.(êîë£HñRCRITICALZ
+CODE_SMELL

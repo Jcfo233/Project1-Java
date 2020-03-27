@@ -1,0 +1,309 @@
+package com.revature.repository;
+
+import java.sql.Blob;
+import java.sql.CallableStatement;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.revature.instances.Employee;
+import com.revature.instances.Reimbursement;
+import com.revature.instances.Type;
+import com.revature.instances.Status;
+import com.revature.util.ConnectionUtil;
+import com.revature.util.LoggerUtil;
+
+public class ReimbursementDAOImpl implements ReimbursementDAO {
+
+	public List<Reimbursement> findAll() {
+		List<Reimbursement> list = new ArrayList<>();
+
+		try (Connection conn = ConnectionUtil.getConnection()) {
+			String sql = "SELECT * FROM ERS_REIMBURSEMENTS " + 
+				    "JOIN ERS_REIMBURSEMENT_STATUS ERS ON ERS_REIMBURSEMENTS.REIMB_STATUS_ID = ERS.REIMB_STATUS_ID " +
+				    "JOIN ERS_REIMBURSEMENT_TYPE ERT ON ERS_REIMBURSEMENTS.REIMB_TYPE_ID = ERT.REIMB_TYPE_ID";
+			
+			Statement stmt = conn.createStatement();
+			
+			ResultSet rs = stmt.executeQuery(sql);
+			
+			while(rs.next()) {
+				int id = rs.getInt("REIMB_ID");
+				int amount = rs.getInt("REIMB_AMOUNT");
+				LocalDateTime submitted = rs.getTimestamp("REIMB_SUBMITTED").toLocalDateTime();
+				LocalDateTime resolved = rs.getTimestamp("REIMB_RESOVLED").toLocalDateTime();
+				String description = rs.getString("REIMB_DESCRIPTION");
+				Blob receipt = rs.getBlob("REIMB_RECEIPT");
+				Employee author = new EmployeeDAOImpl().findById(id);
+				Employee resolver = new EmployeeDAOImpl().findById(id);
+				Status status = Status.valueOf(rs.getString("REIMB_STATUS"));
+				Type type = Type.valueOf(rs.getString("REIMB_TYPE"));
+				
+				list.add(new Reimbursement(id, amount, submitted, resolved, description, receipt, author, resolver, status, type));
+				}
+			stmt.close();
+		} catch (SQLException e) {
+			LoggerUtil.log.info("SQL Exception in UserDaoImpl");
+		}
+		
+		return list;		
+	}
+
+	public List<Reimbursement> findByPending() {
+		List<Reimbursement> list = new ArrayList<>();
+		
+		try (Connection conn = ConnectionUtil.getConnection()) {
+			String sql = "SELECT * FROM ERS_REIMBURSEMENTS " + 
+				    "JOIN ERS_REIMBURSEMENT_STATUS ERS ON ERS_REIMBURSEMENTS.REIMB_STATUS_ID = ERS.REIMB_STATUS_ID " +
+				    "JOIN ERS_REIMBURSEMENT_TYPE ERT ON ERS_REIMBURSEMENTS.REIMB_TYPE_ID = ERT.REIMB_TYPE_ID "
+				    + "WHERE REIMB_STATUS = 'PENDING'";
+			
+			Statement stmt = conn.createStatement();
+			
+			ResultSet rs = stmt.executeQuery(sql);
+			
+			while(rs.next()) {
+				int id = rs.getInt("REIMB_ID");
+				int amount = rs.getInt("REIMB_AMOUNT");
+				LocalDateTime submitted = rs.getTimestamp("REIMB_SUBMITTED").toLocalDateTime();
+				LocalDateTime resolved = rs.getTimestamp("REIMB_RESOVLED").toLocalDateTime();
+				String description = rs.getString("REIMB_DESCRIPTION");
+				Blob receipt = rs.getBlob("REIMB_RECEIPT");
+				Employee author = new EmployeeDAOImpl().findById(id);
+				Employee resolver = new EmployeeDAOImpl().findById(id);
+				Status status = Status.valueOf(rs.getString("REIMB_STATUS"));
+				Type type = Type.valueOf(rs.getString("REIMB_TYPE"));
+				
+				list.add(new Reimbursement(id, amount, submitted, resolved, description, receipt, author, resolver, status, type));
+				}
+			stmt.close();
+		} catch (SQLException e) {
+			LoggerUtil.log.info("SQL Exception in UserDaoImpl");
+		}
+		
+		return list;
+	}
+
+	public List<Reimbursement> findByApproved() {
+		List<Reimbursement> list = new ArrayList<>();
+		
+		try (Connection conn = ConnectionUtil.getConnection()) {
+			String sql = "SELECT * FROM ERS_REIMBURSEMENTS " + 
+				    "JOIN ERS_REIMBURSEMENT_STATUS ERS ON ERS_REIMBURSEMENTS.REIMB_STATUS_ID = ERS.REIMB_STATUS_ID " +
+				    "JOIN ERS_REIMBURSEMENT_TYPE ERT ON ERS_REIMBURSEMENTS.REIMB_TYPE_ID = ERT.REIMB_TYPE_ID "
+				    + "WHERE REIMB_STATUS = 'APPROVED'";
+			
+			Statement stmt = conn.createStatement();
+			
+			ResultSet rs = stmt.executeQuery(sql);
+			
+			while(rs.next()) {
+				int id = rs.getInt("REIMB_ID");
+				int amount = rs.getInt("REIMB_AMOUNT");
+				LocalDateTime submitted = rs.getTimestamp("REIMB_SUBMITTED").toLocalDateTime();
+				LocalDateTime resolved = rs.getTimestamp("REIMB_RESOVLED").toLocalDateTime();
+				String description = rs.getString("REIMB_DESCRIPTION");
+				Blob receipt = rs.getBlob("REIMB_RECEIPT");
+				Employee author = new EmployeeDAOImpl().findById(id);
+				Employee resolver = new EmployeeDAOImpl().findById(id);
+				Status status = Status.valueOf(rs.getString("REIMB_STATUS"));
+				Type type = Type.valueOf(rs.getString("REIMB_TYPE"));
+				
+				list.add(new Reimbursement(id, amount, submitted, resolved, description, receipt, author, resolver, status, type));
+				}
+			stmt.close();
+		} catch (SQLException e) {
+			LoggerUtil.log.info("SQL Exception in ReimbursementDaoImpl");
+		}
+		
+		return list;
+	}
+
+	public List<Reimbursement> findByDenied() {
+		List<Reimbursement> list = new ArrayList<>();
+		
+		try (Connection conn = ConnectionUtil.getConnection()) {
+			String sql = "SELECT * FROM ERS_REIMBURSEMENTS " + 
+				    "JOIN ERS_REIMBURSEMENT_STATUS ERS ON ERS_REIMBURSEMENTS.REIMB_STATUS_ID = ERS.REIMB_STATUS_ID " +
+				    "JOIN ERS_REIMBURSEMENT_TYPE ERT ON ERS_REIMBURSEMENTS.REIMB_TYPE_ID = ERT.REIMB_TYPE_ID "
+				    + "WHERE REIMB_STATUS = 'DENIED'";;
+			
+			Statement stmt = conn.createStatement();
+			
+			ResultSet rs = stmt.executeQuery(sql);
+			
+			while(rs.next()) {
+				int id = rs.getInt("REIMB_ID");
+				int amount = rs.getInt("REIMB_AMOUNT");
+				LocalDateTime submitted = rs.getTimestamp("REIMB_SUBMITTED").toLocalDateTime();
+				LocalDateTime resolved = rs.getTimestamp("REIMB_RESOVLED").toLocalDateTime();
+				String description = rs.getString("REIMB_DESCRIPTION");
+				Blob receipt = rs.getBlob("REIMB_RECEIPT");
+				Employee author = new EmployeeDAOImpl().findById(id);
+				Employee resolver = new EmployeeDAOImpl().findById(id);
+				Status status = Status.valueOf(rs.getString("REIMB_STATUS"));
+				Type type = Type.valueOf(rs.getString("REIMB_TYPE"));
+				
+				list.add(new Reimbursement(id, amount, submitted, resolved, description, receipt, author, resolver, status, type));
+				}
+			stmt.close();
+		} catch (SQLException e) {
+			LoggerUtil.log.info("SQL Exception in ReimbursementDaoImpl");
+		}
+		
+		return list;
+	}
+
+	public List<Reimbursement> findByAuthor(int empid) {
+		List<Reimbursement> list = new ArrayList<>();
+		
+		try (Connection conn = ConnectionUtil.getConnection()) {
+			String sql = "SELECT * FROM ERS_REIMBURSEMENTS " + 
+				    "JOIN ERS_REIMBURSEMENT_STATUS ERS ON ERS_REIMBURSEMENTS.REIMB_STATUS_ID = ERS.REIMB_STATUS_ID " +
+				    "JOIN ERS_REIMBURSEMENT_TYPE ERT ON ERS_REIMBURSEMENTS.REIMB_TYPE_ID = ERT.REIMB_TYPE_ID "
+				    + "WHERE REIMB_AUTHOR = ?";
+			PreparedStatement stmt = conn.prepareStatement(sql);
+		
+			stmt.setInt(1, empid);
+		
+			ResultSet rs = stmt.executeQuery();
+			
+			while(rs.next()) {
+				int id = rs.getInt("REIMB_ID");
+				int amount = rs.getInt("REIMB_AMOUNT");
+				LocalDateTime submitted = rs.getTimestamp("REIMB_SUBMITTED").toLocalDateTime();
+				LocalDateTime resolved = rs.getTimestamp("REIMB_RESOVLED").toLocalDateTime();
+				String description = rs.getString("REIMB_DESCRIPTION");
+				Blob receipt = rs.getBlob("REIMB_RECEIPT");
+				Employee author = new EmployeeDAOImpl().findById(id);
+				Employee resolver = new EmployeeDAOImpl().findById(id);
+				Status status = Status.valueOf(rs.getString("REIMB_STATUS"));
+				Type type = Type.valueOf(rs.getString("REIMB_TYPE"));
+				
+				list.add(new Reimbursement(id, amount, submitted, resolved, description, receipt, author, resolver, status, type));
+			}
+		stmt.close();
+			
+		} catch (SQLException e) {
+			LoggerUtil.log.info("SQL Exception in ReimbursementDaoImpl");
+		}
+		
+		return list;
+	}
+
+	@Override
+	public List<Reimbursement> findById(int reimbid){
+List<Reimbursement> list = new ArrayList<>();
+		
+		try (Connection conn = ConnectionUtil.getConnection()) {
+			String sql = "SELECT * FROM ERS_REIMBURSEMENTS " + 
+				    "JOIN ERS_REIMBURSEMENT_STATUS ERS ON ERS_REIMBURSEMENTS.REIMB_STATUS_ID = ERS.REIMB_STATUS_ID " +
+				    "JOIN ERS_REIMBURSEMENT_TYPE ERT ON ERS_REIMBURSEMENTS.REIMB_TYPE_ID = ERT.REIMB_TYPE_ID "
+				    + "WHERE REIMB_ID = ?";
+			PreparedStatement stmt = conn.prepareStatement(sql);
+		
+			stmt.setInt(1, reimbid);
+		
+			ResultSet rs = stmt.executeQuery();
+			
+			while(rs.next()) {
+				int id = rs.getInt("REIMB_ID");
+				int amount = rs.getInt("REIMB_AMOUNT");
+				LocalDateTime submitted = rs.getTimestamp("REIMB_SUBMITTED").toLocalDateTime();
+				LocalDateTime resolved = rs.getTimestamp("REIMB_RESOVLED").toLocalDateTime();
+				String description = rs.getString("REIMB_DESCRIPTION");
+				Blob receipt = rs.getBlob("REIMB_RECEIPT");
+				Employee author = new EmployeeDAOImpl().findById(rs.getInt("REIMB_AUTHOR"));
+				Employee resolver = new EmployeeDAOImpl().findById(rs.getInt("REIMB_RESOLVER"));
+				Status status = Status.valueOf(rs.getString("REIMB_STATUS"));
+				Type type = Type.valueOf(rs.getString("REIMB_TYPE"));
+				
+				list.add(new Reimbursement(id, amount, submitted, resolved, description, receipt, author, resolver, status, type));
+			}
+		stmt.close();
+			
+		} catch (SQLException e) {
+			LoggerUtil.log.info("SQL Exception ReimbursementDaoImpl");
+		}
+		
+		return list;
+	}
+	public boolean insert(Reimbursement reimb) {
+		try (Connection conn = ConnectionUtil.getConnection()) {
+			String sql = "{ call insert_into_reimb(?, ?, ?, ?, ?, ?, ?, ?, ?) }";
+			
+			CallableStatement stmt = conn.prepareCall(sql);
+			
+			stmt.setInt(1, reimb.getAmount());
+			stmt.setTimestamp(2, Timestamp.valueOf(LocalDateTime.now()));
+			stmt.setTimestamp(3, Timestamp.valueOf(reimb.getResolved()));
+			stmt.setString(4, reimb.getDescription());
+			stmt.setBlob(5,  reimb.getReceipt());
+			stmt.setInt(6,  reimb.getAuthor().getId());
+			stmt.setInt(7,  reimb.getResolver().getId());
+			stmt.setInt(8,  1);
+			switch (reimb.getType()) {
+			case LODGING:
+				stmt.setInt(9,  1);
+				break;
+			case TRAVEL:
+				stmt.setInt(9,  2);
+				break;
+			case FOOD:
+				stmt.setInt(9,  3);
+				break;
+			default:
+				stmt.setInt(9,  4);
+			}
+			stmt.execute();
+			stmt.close();
+			return true;
+		} catch (SQLException e) {
+			LoggerUtil.log.info("SQL Exception in ReimbursementDaoImpl: insert");
+			return false;
+		}
+	}
+
+	public boolean update(Reimbursement reimb) {
+	try (Connection conn = ConnectionUtil.getConnection()) {
+		String sql = "UPDATE ERS_REIMBURSEMENTS SET REIMB_AMOUNT = ?, REIMB_SUBMITTED = ?, REIMB_RESOLVED = ?, REIMB_DESCRIPTION = ?, REIMB_RECEIPT = ?, REIMB_AUTHOR = ?, REIMB_RESOLVER = ?, REIMB_STATUS_ID = ?, REIMB_TYPE_ID = ? WHERE REIMB_ID = " + reimb.getId();
+		
+		PreparedStatement stmt = conn.prepareStatement(sql);
+		
+		stmt.setInt(1, reimb.getAmount());
+		stmt.setTimestamp(2, Timestamp.valueOf(reimb.getSubmitted()));
+		stmt.setTimestamp(3, Timestamp.valueOf(LocalDateTime.now()));
+		stmt.setString(4, reimb.getDescription());
+		stmt.setBlob(5,  reimb.getReceipt());
+		stmt.setInt(6,  reimb.getAuthor());
+		stmt.setInt(7,  reimb.getResolver());
+		stmt.setInt(8,  1);
+		switch (reimb.getType()) {
+		case LODGING:
+			stmt.setInt(9,  1);
+			break;
+		case TRAVEL:
+			stmt.setInt(9,  2);
+			break;
+		case FOOD:
+			stmt.setInt(9,  3);
+			break;
+		default:
+			stmt.setInt(9,  4);
+		}
+		stmt.execute();
+		stmt.close();
+		return true;
+	} catch (SQLException e) {
+		LoggerUtil.log.info("SQL Exception in ReimbursementDaoImpl: update");
+		return false;
+	}
+	}
+
+}

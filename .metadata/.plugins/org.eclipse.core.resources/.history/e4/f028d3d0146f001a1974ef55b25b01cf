@@ -1,0 +1,54 @@
+package com.revature.services;
+
+import java.util.List;
+
+import com.revature.instances.Reimbursement;
+import com.revature.repository.ReimbursementDAO;
+import com.revature.repository.ReimbursementDAOImpl;
+
+public class ReimbService {
+	private ReimbursementDAO repository = new ReimbursementDAOImpl();
+	
+	public ReimbService() {
+		super();
+		repository = new ReimbursementDAOImpl();
+	}
+
+	public ReimbService(ReimbursementDAO repository) {
+		super();
+		this.repository = repository;
+	}
+	
+	public List<Reimbursement> findAll(){
+		return repository.findAll();
+	}
+	
+	public List<Reimbursement> findByPending(){
+		return repository.findByPending();
+	}
+	
+	public List<Reimbursement> findByApproved(){
+		return repository.findByApproved();
+	}
+	
+	public List<Reimbursement> findByDenied(){
+		return repository.findByDenied();
+	}
+	
+	public List<Reimbursement> findByAuthor(int id){
+		return repository.findByAuthor(id);
+	}
+	
+	public boolean insert(Reimbursement reimb) {
+		return repository.insert(reimb);
+	}
+	
+	public boolean update(Reimbursement reimb) {
+		return repository.update(reimb);
+	}
+	
+	public List<Reimbursement> findById(int reimbid){
+		return repository.findById(reimbid);
+	}
+	
+}

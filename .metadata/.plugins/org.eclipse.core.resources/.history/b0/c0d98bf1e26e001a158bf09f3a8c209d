@@ -1,0 +1,44 @@
+package com.revature.servlets;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.time.LocalDateTime;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.revature.instances.Employee;
+import com.revature.instances.LoginTemplate;
+import com.revature.services.EmployeeService;
+
+public class LoginServlet extends HttpServlet {
+	private static final long serialVersionUID = 5901784448217028279L;
+
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse res) 
+	  throws IOException, ServletException{
+		BufferedReader reader = req.getReader();
+		StringBuilder sb = new StringBuilder();
+		
+		String line = "";
+		while( (line = reader.readLine()) != null) {
+			sb.append(line);
+		}
+		
+		String body = sb.toString();
+		ObjectMapper om = new ObjectMapper();
+		LoginTemplate template = om.readValue(body, LoginTemplate.class);
+		
+		LocalDateTime timestamp = LocalDateTime.now();
+		
+		Employee e = new EmployeeService().findByUserPass(template.getUsername(), template.getPassword());
+		
+		res.setContentType("application/json");
+		
+		res.getWriter().println(om.writeValueAsString(e));
+	}
+}

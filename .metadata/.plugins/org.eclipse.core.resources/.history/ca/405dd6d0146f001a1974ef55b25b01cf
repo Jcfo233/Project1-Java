@@ -1,0 +1,25 @@
+package com.revature.services;
+
+import com.revature.instances.Employee;
+import com.revature.repository.EmployeeDAO;
+import com.revature.repository.EmployeeDAOImpl;
+
+public class EmployeeService {
+
+	private EmployeeDAO repository = new EmployeeDAOImpl();
+	
+	
+	public EmployeeService() {
+		super();
+		repository = new EmployeeDAOImpl();
+	}
+
+	public EmployeeService(EmployeeDAO repository) {
+		super();
+		this.repository = repository;
+	}
+
+	public Employee findByUserPass(String username, String password) {
+		return repository.findByUserPass(username, password);		
+	}
+}

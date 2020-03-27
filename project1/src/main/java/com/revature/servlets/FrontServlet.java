@@ -1,0 +1,86 @@
+package com.revature.servlets;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.time.LocalDateTime;
+import java.util.Arrays;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.revature.instances.Employee;
+import com.revature.instances.LoginTemplate;
+import com.revature.instances.Role;
+import com.revature.services.EmployeeService;
+import com.revature.services.ReimbService;
+public class FrontServlet extends HttpServlet {
+		private static final long serialVersionUID = 5901784448217028279L;
+
+		@Override
+		protected void doGet(HttpServletRequest req, HttpServletResponse res) 
+		  throws IOException, ServletException{
+			
+			BufferedReader reader = req.getReader();
+			StringBuilder sb = new StringBuilder();
+			
+			String[] uri = req.getRequestURI().split("/");
+			
+			String result = null;
+			if (uri.length >= 3) {
+				switch (uri[2]) {
+					case "login":
+						result = new EmployeeService().processGet(Arrays.copyOfRange(uri, 2, uri.length));
+						break;
+					case "reimbursement":
+						result = new ReimbService().processGet(Arrays.copyOfRange(uri, 2, uri.length));
+						break;
+					default: 
+						break;
+				}
+			}
+			
+			res.setContentType("application/json");
+			
+			res.getWriter().println(result);
+		}
+		
+		@Override
+		protected void doPost(HttpServletRequest req, HttpServletResponse res)
+			throws IOException, ServletException{
+			
+			BufferedReader reader = req.getReader();
+			StringBuilder sb = new StringBuilder();
+			
+			String[] uri = req.getRequestURI().split("/");
+			
+			String line = "";
+			while( (line = reader.readLine()) != null) {
+				sb.append(line);
+			}
+			
+			String body = sb.toString();
+			
+			String result = null;
+			if (uri.length >= 3) {
+				switch (uri[2]) {
+				case "login":
+					result = new EmployeeService().processPost(uri, body);
+					break;
+				case "reimbursement":
+					result = new ReimbService().processPost(uri, body);
+					break;
+				default:
+					break;
+				}
+			}
+			System.out.println(result);
+			res.setContentType("application/json");
+			
+			res.getWriter().println(result);
+		}
+}

@@ -1,0 +1,54 @@
+package com.revature.services;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.revature.instances.Employee;
+import com.revature.instances.LoginTemplate;
+import com.revature.repository.EmployeeDAO;
+import com.revature.repository.EmployeeDAOImpl;
+import com.revature.util.LoggerUtil;
+
+public class EmployeeService {
+
+	private EmployeeDAO repository = new EmployeeDAOImpl();
+	private ObjectMapper mapper;
+	
+	public EmployeeService() {
+		super();
+		this.repository = new EmployeeDAOImpl();
+		this.mapper = new ObjectMapper();
+	}
+
+	public EmployeeService(EmployeeDAO repository) {
+		super();
+		this.repository = repository;
+		this.mapper = new ObjectMapper();
+	}
+	
+	public Employee findByUser(String username) {
+		return repository.findByUser(username);
+	}
+
+	public Boolean findByUserPass(String username, String password) {
+		return repository.findByUserPass(username, password);		
+	}
+
+	public String processGet(String[] uri) {
+		if  (uri.length == 1) {
+			return null;
+		}   else {
+			try {
+				return mapper.writeValueAsString(findByUser(uri[1]));
+			} catch (JsonProcessingException e) {
+				LoggerUtil.getLogger().info("JsonProccessingException in processGet", e);
+			}
+			return null;
+		}		
+	}
+	
+	public String processPost(String[] uri, String  json) throws JsonMappingException, JsonProcessingException {
+		LoginTemplate login = mapper.readValue(json, LoginTemplate.class);
+		return mapper.writeValueAsString(findByUserPass(login.getUsername(), Integer.toString(login.getPassword().hashCode())));
+	}
+}

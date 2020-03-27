@@ -1,0 +1,27 @@
+
+r	java:S107"BConstructor has 10 parameters, which is greater than 7 authorized.(Ô³à†üÿÿÿÿH¨RMAJORZ
+CODE_SMELL
+^
+java:S1128"+Remove this unused import 'java.util.Date'.(¸…¼ü8·…İÓ‘.HòRMINORZ
+CODE_SMELL
+|
+java:S3973"GUse indentation to denote the code conditionally executed by this "if".(»’¿ÖùÿÿÿÿHÂRCRITICALZ
+CODE_SMELL
+{
+java:S3973"GUse indentation to denote the code conditionally executed by this "if".(ŒşıìúÿÿÿÿH¾RCRITICALZ
+CODE_SMELL
+l
+java:S1128"4Remove this unused import 'java.time.LocalDateTime'.(æÃ§ƒüÿÿÿÿ8®‹ÇÓ‘.HîRMINORZ
+CODE_SMELL
+
+java:S3776p"RRefactor this method to reduce its Cognitive Complexity from 21 to the 15 allowed.(ÜÑãHÁRCRITICALZ
+CODE_SMELL
+v
+java:S3973†"GUse indentation to denote the code conditionally executed by this "if".(†Ú¢H¿RCRITICALZ
+CODE_SMELL
+n
+java:S1126‘"AReplace this if-then-else statement by a single return statement.(ëò’˜HÀRMINORZ
+CODE_SMELL
+]
+java:S1128"*Remove this unused import 'java.sql.Blob'.(ïÚ¶ã8öí«Ö‘.H†RMINORZ
+CODE_SMELL

@@ -1,0 +1,42 @@
+
+˜
+java:S11925"]Define a constant instead of duplicating this literal "SQL Exception in UserDaoImpl" 3 times.(…èÈ´þÿÿÿÿ8É·Å·‘.H…RCRITICALZ
+CODE_SMELL
+n	java:S125("<This block of commented-out lines of code should be removed.(Û¯žÇ8Óä–Ë‘.H–RMAJORZ
+CODE_SMELL
+w
+java:S1301w"KReplace this "switch" statement by "if" statements to increase readability.(–”ï½HüRMINORZ
+CODE_SMELL
+ƒ
+java:S1192 "MDefine a constant instead of duplicating this literal "ERS_PASSWORD" 3 times.(µÎñ8É·Å·‘.HRCRITICALZ
+CODE_SMELL
+s
+java:S22592"BA "NullPointerException" could be thrown; "pass" is nullable here.(¯§½ûÿÿÿÿ8šý—Ë‘.H™RMAJORZBUG
+s	java:S125"<This block of commented-out lines of code should be removed.(öá—£úÿÿÿÿ8Óä–Ë‘.H”RMAJORZ
+CODE_SMELL
+n	java:S125+"<This block of commented-out lines of code should be removed.(‘èÀí8Óä–Ë‘.H—RMAJORZ
+CODE_SMELL
+s
+java:S2095k"GUse try-with-resources or close this "ResultSet" in a "finally" clause.(Ë¼ËûÿÿÿÿHúRBLOCKERZBUG
+}
+java:S2095g"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ÐÀœ¢8É·Å·‘.HóRBLOCKERZBUG
+v
+java:S2095"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ÐÀœ¢HÿRBLOCKERZBUG
+W	java:S131O""Add a default case to this switch.(–”ï½8É·Å·‘.HýRCRITICALZ
+CODE_SMELL
+v
+java:S2095@"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ÐÀœ¢HöRBLOCKERZBUG
+`
+java:S1481"(Remove this unused "emp" local variable.(Éò‚•øÿÿÿÿ8šý—Ë‘.HšRMINORZ
+CODE_SMELL
+s	java:S125!"<This block of commented-out lines of code should be removed.(©ÂÄ”þÿÿÿÿ8Óä–Ë‘.H•RMAJORZ
+CODE_SMELL
+s
+java:S2095"GUse try-with-resources or close this "ResultSet" in a "finally" clause.(Ë¼ËûÿÿÿÿH÷RBLOCKERZBUG
+P	java:S131w""Add a default case to this switch.(–”ï½HøRCRITICALZ
+CODE_SMELL
+z
+java:S2095D"GUse try-with-resources or close this "ResultSet" in a "finally" clause.(Ë¼Ëûÿÿÿÿ8É·Å·‘.HþRBLOCKERZBUG
+~
+java:S1301O"KReplace this "switch" statement by "if" statements to increase readability.(–”ï½8É·Å·‘.HƒRMINORZ
+CODE_SMELL

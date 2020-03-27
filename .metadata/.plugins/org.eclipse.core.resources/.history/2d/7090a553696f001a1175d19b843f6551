@@ -1,0 +1,11 @@
+package com.revature.repository;
+
+import com.revature.instances.Employee;
+
+public interface EmployeeDAO {
+	Employee findByUserPass(String username, String password);
+
+	Employee findById(int int1);
+
+	Employee findByUser(String username);
+}
