@@ -17,6 +17,7 @@ public class HashUtil {
 		Hasher hasher = Hashing.sha256().newHasher();
 		hasher.putString(in, StandardCharsets.UTF_8);
 		HashCode out = hasher.hash();
+		
 		return out.toString();
 	}
 }

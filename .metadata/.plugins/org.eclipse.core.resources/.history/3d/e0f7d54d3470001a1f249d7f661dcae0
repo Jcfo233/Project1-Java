@@ -535,11 +535,10 @@ List<Reimbursement> list = new ArrayList<>();
 		stmt.setString(3, reimb.getDescription());
 		Blob blob = conn.createBlob();
         if (reimb.getReceipt() != null) {
-        	System.out.println("In if");
             blob.setBytes(1, reimb.getReceipt().getBytes());
-            stmt.setBlob(4, blob);
-            System.out.println("Leaving if");
-        } else stmt.setNull(4, Types.BLOB);
+            stmt.setBlob(3, blob);
+        } else stmt.setNull(3, Types.BLOB);
+        stmt.setBlob(4, blob);
 		stmt.setInt(5,  reimb.getAuthor());
 		stmt.setInt(6,  reimb.getResolver());
 		switch (reimb.getStatus()) {

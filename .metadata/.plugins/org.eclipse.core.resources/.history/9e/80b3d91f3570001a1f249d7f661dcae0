@@ -72,7 +72,7 @@ public class ReimbService {
 			case "APPROVED":
 				return mapper.writeValueAsString(repository.findByApproved());
 			case "DENIED":
-				return mapper.writeValueAsString(repository.findByDenied());
+				return mapper.writeValueAsString(repository.findByApproved());
 			default:
 				int id = new EmployeeService().findByUser(uri[1]).getId();
 				return mapper.writeValueAsString(repository.findByAuthor(id));

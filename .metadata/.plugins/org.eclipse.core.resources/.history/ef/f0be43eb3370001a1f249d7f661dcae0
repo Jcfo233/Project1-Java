@@ -41,11 +41,7 @@ public class ReimbursementDAOImpl implements ReimbursementDAO {
 			while(rs.next()) {
 				int id = rs.getInt("REIMB_ID");
 				int amount = rs.getInt("REIMB_AMOUNT");
-				rs.getTimestamp("REIMB_SUBMITTED");
-				String submitted = null;
-				if(!rs.wasNull()) {
-				submitted = rs.getTimestamp("REIMB_SUBMITTED").toString();
-				}
+				String submitted = rs.getTimestamp("REIMB_SUBMITTED").toString();
 				String resolved = null;
 				rs.getTimestamp("REIMB_RESOLVED");
 				if(!rs.wasNull()) {
@@ -203,10 +199,7 @@ public class ReimbursementDAOImpl implements ReimbursementDAO {
 			while(rs.next()) {
 				int id = rs.getInt("REIMB_ID");
 				int amount = rs.getInt("REIMB_AMOUNT");
-				String submitted = null;
-				if(!rs.wasNull()) {
-				submitted = rs.getTimestamp("REIMB_SUBMITTED").toString();
-				}
+				String submitted = rs.getTimestamp("REIMB_SUBMITTED").toString();
 				String resolved = null;
 				rs.getTimestamp("REIMB_RESOLVED");
 				if(!rs.wasNull()) {
@@ -361,10 +354,7 @@ public class ReimbursementDAOImpl implements ReimbursementDAO {
 			while(rs.next()) {
 				int id = rs.getInt("REIMB_ID");
 				int amount = rs.getInt("REIMB_AMOUNT");
-				String submitted = null;
-				if(!rs.wasNull()) {
-				submitted = rs.getTimestamp("REIMB_SUBMITTED").toString();
-				}
+				String submitted = rs.getTimestamp("REIMB_SUBMITTED").toString();
 				String resolved = null;
 				rs.getTimestamp("REIMB_RESOLVED");
 				if(!rs.wasNull()) {
@@ -443,10 +433,7 @@ List<Reimbursement> list = new ArrayList<>();
 			while(rs.next()) {
 				int id = rs.getInt("REIMB_ID");
 				int amount = rs.getInt("REIMB_AMOUNT");
-				String submitted = null;
-				if(!rs.wasNull()) {
-				submitted = rs.getTimestamp("REIMB_SUBMITTED").toString();
-				}
+				String submitted = rs.getTimestamp("REIMB_SUBMITTED").toString();
 				String resolved = null;
 				rs.getTimestamp("REIMB_RESOLVED");
 				if(!rs.wasNull()) {
@@ -535,11 +522,10 @@ List<Reimbursement> list = new ArrayList<>();
 		stmt.setString(3, reimb.getDescription());
 		Blob blob = conn.createBlob();
         if (reimb.getReceipt() != null) {
-        	System.out.println("In if");
             blob.setBytes(1, reimb.getReceipt().getBytes());
-            stmt.setBlob(4, blob);
-            System.out.println("Leaving if");
-        } else stmt.setNull(4, Types.BLOB);
+            stmt.setBlob(3, blob);
+        } else stmt.setNull(3, Types.BLOB);
+        stmt.setBlob(4, blob);
 		stmt.setInt(5,  reimb.getAuthor());
 		stmt.setInt(6,  reimb.getResolver());
 		switch (reimb.getStatus()) {
